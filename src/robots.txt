@@ -1,0 +1,11 @@
+User-agent: *
+
+# Para proibir o google de indexar as informacoes de um diretorio, escreva o diretorio abaixo e retire o # da linha antes do Disallow:
+
+#  Exemplo:
+#  Disallow: /newsite/
+
+
+# Se seu site possuir sitemap, e interessante colocar a url completa dele abaixo e retirar o # do inicio da frase:
+
+# Sitemap: http://www.meusite.com.br/sitemap_index.xml

@@ -1,0 +1,22 @@
+<section>
+    <div id="gtco-faq" class="gtco-section">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading ">
+					<h2>{{vm.wTitle}}</h2>
+					<p>{{vm.description}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<ul class="fh5co-faq-list">
+						<li class="" ng-repeat="question in vm.questions">
+							<h3 compiler="question.question"></h3>
+							<p compiler="question.anwser"></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

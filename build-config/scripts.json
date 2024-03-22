@@ -1,0 +1,20 @@
+[
+    "./node_modules/angular/angular.js",
+    "./node_modules/@uirouter/angularjs/release/angular-ui-router.js",
+    "./node_modules/angular-input-masks/releases/angular-input-masks-standalone.js",
+    "./node_modules/angular-recaptcha/release/angular-recaptcha.min.js",
+    "./node_modules/fileapi/dist/fileAPI.js",
+
+    "./src/app/translationsApp.module.js",
+    "./src/app/common/common.module.js",
+    "./src/app/public/public.module.js",
+
+    "./src/app/index.controller.js",
+    "./src/app/common/common.config.js",
+    "./src/app/common/pages.constants.js",
+    "./src/app/public/public.config.js",
+
+    "./src/app/common/components/**/*.js",
+    "./src/app/public/**/*.js"
+
+]

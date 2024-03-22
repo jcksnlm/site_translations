@@ -1,0 +1,38 @@
+{
+  "name": "translations",
+  "version": "1.0.0",
+  "description": "Traduções juramentadas",
+  "main": "app/index.html",
+  "dependencies": {
+    "angular-input-masks": "^4.2.1",
+    "angular-recaptcha": "^4.2.0",
+    "font-awesome": "^4.7.0",
+    "googleapis": "^39.2.0"
+  },
+  "devDependencies": {
+    "@uirouter/angularjs": "^1.0.17",
+    "angular": "^1.7.0",
+    "apache-server-configs": "^3.1.0",
+    "browser-sync": "^2.24.6",
+    "fileapi": "^2.0.25",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jackson de Lima",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcksnlm/translations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcksnlm/translations/issues"
+  },
+  "homepage": "https://github.com/jcksnlm/translations#readme"
+}

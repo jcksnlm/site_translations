@@ -1,0 +1,127 @@
+<div id="formulario-de-orcamento" class="gtco-section shrink-padding">
+    <div class="gtco-container">
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                <h2>Peça um orçamento agora mesmo.</h2>
+                <p>Preencha o formulário abaixo. Ou peça por <a href="{{CONTACTS.EMAIL.LINK}}" target="_top">E-mail</a> ou <a href="{{CONTACTS.WHATSAPP.LINK}}" target="_blank">WhatsApp</a> clicando <a href="#sessao-contatos">aqui</a>.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <div class="form-wrap">
+                    <div class="tab-content">
+                        <div class="tab-content-inner active" data-content="signup">
+                            <div class="text-center" ng-show="state === 'sending'">
+                                <div class="gtco-loader-form"><div class="spinner"></div></div>
+                                Por favor aguarde, seus dados estão sendo enviados. <br/>
+                                Se seus arquivos forem grandes, isso pode demorar vários minutos.
+                            </div>
+
+                            <div class="text-center" ng-show="state === 'success'">
+                                <div class="success-icon-container"><i class="fa fa-check-circle"></i></div>
+                                Muito obrigado pelo seu contato.<br/>
+                                Em até 24 horas úteis lhe enviaremos o seu orçamento.<br/>
+                                Clique <a ng-click="newForm()">aqui</a>, para preencher um novo formulário.
+                            </div>
+
+                            <div class="text-center" ng-show="state === 'error'">
+                                <div class="error-icon-container"><i class="fa fa-exclamation-triangle"></i></div>
+                                Ops!<br/>
+                                Não conseguimos carregar seus arquivos.<br/>
+                                Por favor, entre em contatos pelos <a href="#sessao-contatos">telefones</a> ou <a href="{{CONTACTS.EMAIL.LINK}}" target="_top">e-mail</a> logo <a href="#sessao-contatos">abaixo</a>, para melhor atendermos.
+                            </div>
+
+                            <div ng-show="state === 'new'">
+                                <div class="row quote-form-title">
+                                    <div class="col-sm-6">
+                                        <h3>Insira seus dados</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span>Os campos com asterísco (</span><span>*</span><span>) são obrigatórios</span>
+                                    </div>
+                                </div>
+                                <form name="quotationForm" novalidate>
+                                    <div class="row form-group fields">
+                                        <div class="col-md-6" ng-class="{'has-error' : quotationForm.fullname.$error.required && (quotationForm.fullname.$touched || triedSend) }">
+                                            <label for="fullname">Nome completo*</label>
+                                            <input type="text" name="fullname" ng-model="fullname" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : (quotationForm.email.$error.required || quotationForm.email.$error.email) && (quotationForm.email.$touched || triedSend) }">
+                                            <label for="email">E-mail*</label>
+                                            <input type="email" name="email" ng-model="email" class="form-control" required >
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : (quotationForm.phone1.$error.required || quotationForm.phone1.$error.brPhoneNumber || quotationForm.phone1.$error.minlength) && (quotationForm.phone1.$touched || triedSend) }">
+                                            <label for="phone1">Telefone 1 com DDD*</label>
+                                            <input type="tel" name="phone1" ng-model="phone1" class="form-control" required ui-br-phone-number-mask="areaCode" minlength="14">
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : (quotationForm.phone2.$error.brPhoneNumber || quotationForm.phone2.$error.minlength) && (quotationForm.phone2.$touched || triedSend) }">
+                                            <label for="phone2">Telefone 2 com DDD</label>
+                                            <input type="tel" name="phone2" ng-model="phone2" class="form-control" ui-br-phone-number-mask="areaCode"  minlength="14">
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : !languageOrig && triedSend }">
+                                            <label for="languageOrig">Idioma de origem*</label>
+                                            <select name="#" name="languageOrig" ng-model="languageOrig" ng-options="x for x in langs" class="form-control" required>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : !languageDest && triedSend }">
+                                            <label for="languageDest">Idioma de destino*</label>
+                                            <select name="#" name="languageDest" ng-model="languageDest" ng-options="x for x in langs" class="form-control" required>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : !province && triedSend }">
+                                            <label for="province">Estado para envio:*</label>
+                                            <select name="#" name="province" ng-model="province" ng-options="x for x in provinces" class="form-control" required>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6" ng-class="{'has-error' : !haia && triedSend }">
+                                            <label for="haia">Incluir apostila de haia*</label>
+                                            <select name="#" name="haia" ng-model="haia" ng-options="x for x in haiaOptions" class="form-control" required>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <file-upload></file-upload>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="selected">Arquivos selecionados</label>
+                                            <div class="form-control selected-files">
+                                                <div class="selected-file-container" ng-repeat="file in files">
+                                                    <div class="button-container">
+                                                        <button class="btn btn-danger" ng-click="removeItem($index)">Remover</button>
+                                                    </div>
+                                                    <div class="file-name-container">
+                                                        <div class="file-name">
+                                                            {{file.name}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="observations">Observações</label>
+                                            <textarea rows="3" name="observations" ng-model="observations" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-md-12"  ng-class="{'has-error' : !recaptchaResponse && triedSend }">
+                                            <div on-create="setWidgetId(widgetId)" tabindex="3" theme="clean" vc-recaptcha key="key" ng-model="recaptchaResponse" class="recaptcha"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" class="btn btn-primary btn-block" value="Enviar" ng-class="{'disabled': quotationForm.$invalid && !testing && !vm.private}" ng-click="send()">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<contacts-bottom w-title="contactsBottomTitle" ng-if="!vm.private"></contacts-bottom>

@@ -1,0 +1,40 @@
+<section>
+    <div id="gtco-page-content">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading ">
+				</div>
+			</div>
+			<div class="row">
+				<ul class="fh5co-topic-list">
+					<li ng-repeat="topic in vm.topics">
+                        <div
+                        ng-class="{
+                            'page-item-list col-xs-12 col-sm-8 page-content-topic': true,
+                            'pull-right': $index % 2 !== 0
+                        }"
+                        style="position: relative">
+                            <div class="topic-anchor" id={{topic.id}}></div>
+    						<h2 compiler="topic.title"></h2>
+    						<p compiler="topic.description"></p>
+                            <div ng-if="topic.video"
+                            ng-class="{
+                                'video-container': true,
+                                'pull-right': $index % 2 !== 0
+                            }" >
+                                <iframe
+                                    ng-src="{{vm.trustSrc(topic.video)}}"
+                                    frameborder="0"
+                                    class="yt-video"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+
+                        </div>
+					</li>
+                </ul>
+			</div>
+		</div>
+	</div>
+</section>

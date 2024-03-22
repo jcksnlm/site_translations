@@ -1,0 +1,19 @@
+<section>
+    <div class="gtco-section" id="servicos-de-traducao">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                    <h2>Conheça nossos serviços</h2>
+                    <p>Oferecemos diversos tipos de traduções e nos comprometemos a entregá-los com o máximo de eficiência e rapidez.</p>
+                </div>
+            </div>
+            <div class="row row-eq-height">
+                <card ng-repeat="card in vm.cards"
+                in-class="card.class"
+                in-title="card.title"
+                description="card.description"
+                sref="card.sref"></card>
+            </div>
+        </div>
+    </div>
+</section>

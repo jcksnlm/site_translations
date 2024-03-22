@@ -1,0 +1,28 @@
+<section>
+    <header id="gtco-header" class="gtco-secondary-cover" role="banner">
+        <contacts-fixed ng-if="!vm.hideContactsFixed" starts-at="vm.contactsFixed"></contacts-fixed>
+        <div class="overlay" ng-style="{'background-image':'url(images/'+ vm.pageImageName +')'}"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="row row-mt-8em">
+
+						<div class="col-md-12 mt-text animate-box text-container" data-animate-effect="fadeInUp">
+							<h1>{{vm.pageTitle}}</h1>
+                            <span class="intro-text-small">{{vm.pageDescription}}</span>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="gtco-container border-bottom">
+        <page-content topics="vm.pageTopics"></page-content>
+	</div>
+    <our-services></our-services>
+    <quotation-form></quotation-form>
+
+
+</section>
